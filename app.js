@@ -5,6 +5,8 @@ const employeRouter = require("./router/employeRouter")
 const taskRouter = require('./router/taskRouter');
 
 const session = require("express-session")
+require("dotenv").config()
+
 
 const app = express()
 // appeller avant le middleware userRouter
@@ -22,6 +24,6 @@ app.use(ordinateurRouter)
 app.use(employeRouter)
 app.use(taskRouter)
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     console.log("Connecté sur le port 3000");
 })
