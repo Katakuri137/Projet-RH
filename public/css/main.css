@@ -1,0 +1,304 @@
+/* Importation de la police Roboto */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+/* Styles globaux */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: url("../assets/img/background.png") center/cover no-repeat fixed;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: inherit;
+  opacity: 0.9;
+  z-index: -1;
+}
+
+/* Header et Footer */
+header,
+footer {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 1rem 2rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container img {
+  height: 100px;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style-type: none;
+  align-items: center;
+}
+
+nav a {
+  color: #c29d5e;
+  background-color: rgba(216, 28, 144, 0.6);
+  text-decoration: none;
+  padding: 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #e5c76b;
+}
+
+/* Styles pour le menu déroulant */
+nav ul li {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 0 0 8px 8px;
+  padding: 0.5rem 0;
+  min-width: 200px;
+}
+
+nav ul li:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  display: block;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #c29d5e;
+  background-color: transparent;
+}
+
+.dropdown-menu a:hover {
+  background-color: rgba(216, 28, 144, 0.6);
+}
+
+/* Main content */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Section principale et formulaires */
+section,
+.form {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+  width: 100%;
+  max-width: 800px;
+  margin: 3rem auto 0;
+  margin-bottom: 2rem;
+}
+
+/* Titres */
+h1,
+h2 {
+  color: #c29d5e;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Formulaires */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Groupes de champs de formulaire */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #c29d5e;
+}
+
+/* Champs de formulaire */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 1rem;
+  background-color: #2e2e2e;
+  border: 1px solid #555;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Boutons */
+button,
+.btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: #c29d5e;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+button:hover,
+.btn:hover {
+  background-color: #e5c76b;
+}
+
+/* Liens d'action supplémentaires */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.actions button,
+.actions a {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.actions button {
+  background-color: #e94e77;
+  color: white;
+}
+
+.actions a {
+  background-color: #4e9ae9;
+  color: white;
+}
+
+.actions button:hover,
+.actions a:hover {
+  opacity: 0.8;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: auto;
+}
+
+/* Styles spécifiques pour la page d'accueil */
+.home-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+.home-nav a {
+  width: 100%;
+  padding: 1rem;
+  background-color: #c29d5e;
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.home-nav a:hover {
+  background-color: #e5c76b;
+  transform: translateY(-3px);
+}
+
+/* Styles pour le tableau de bord */
+.dashboard-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dashboard-list li {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.4
+  ); /* Fond plus sombre pour un meilleur contraste */
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+.dashboard-list strong {
+  color: #c29d5e; /* Même couleur que les titres pour la cohérence */
+  font-size: 16px; /* Légèrement plus grand pour une meilleure lisibilité */
+  display: block; /* Pour que le nom soit sur sa propre ligne */
+  margin-bottom: 0.5rem; /* Espace entre le nom et les autres informations */
+}
+
+/* Message d'erreur */
+.error-message {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: rgba(255, 0, 0, 0.1);
+  border: 1px solid #ff0000;
+  border-radius: 4px;
+  color: #ff0000;
+}

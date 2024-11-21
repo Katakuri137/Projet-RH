@@ -1,0 +1,51 @@
+{% extends "../layouts/base.twig" %}
+{% block style %}
+	<link rel="stylesheet" href="/css/main.css">
+{% endblock %}
+
+{% block title %}
+	<title>Ajouter un Employé</title>
+{% endblock %}
+
+{% block main %}
+	<main>
+		<section>
+			<div>
+				{% if employe %}
+					<h2>Modifier l'Employé #{{ employe.id }}</h2>
+				{% else %}
+					<h2>Ajouter un Employé</h2>
+				{% endif %}
+				<form {% if employe %} action="/updateemploye/{{ employe.id }}" {% else %} action="/addemploye" {% endif %} method="post">
+					<div>
+						<label for="lastName">Nom de Famille</label>
+						<input type="text" name="lastName" id="lastName" value="{{ employe.lastName }}">
+					</div>
+					<div>
+						<label for="firstName">Prénom</label>
+						<input type="text" name="firstName" id="firstName" value="{{ employe.firstName }}">
+					</div>
+					<div>
+						<label for="email">Adresse email</label>
+						<input type="text" name="email" id="email" value="{{ employe.email }}">
+					</div>
+					<div>
+						<label for="age">Âge</label>
+						<input type="number" name="age" id="age" value="{{ employe.age }}">
+					</div>
+					<div>
+						<label for="password">Mot de passe</label>
+						<input type="password" name="password" id="password">
+					</div>
+					<button>
+						{% if employe %}
+							Modifier l'Employé
+						{% else %}
+							Créer l'Employé
+						{% endif %}
+					</button>
+				</form>
+			</div>
+		</section>
+	</main>
+{% endblock %}

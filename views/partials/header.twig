@@ -1,0 +1,40 @@
+<header>
+	<div class="logo-container">
+		<a href="/">
+			<img src="/assets/img/logo.png" alt="logo">
+		</a>
+	</div>
+	<nav>
+		<ul>
+			{% if entreprise %}
+				<li>
+					<a href="/">Accueil</a>
+				</li>
+				<li>
+					<a href="#">Gestionnaire ⬇️</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="/addordinateur">Ajouter un ordinateur</a>
+						</li>
+						<li>
+							<a href="/addemploye">Ajouter un employé</a>
+						</li>
+						<li>
+							<a href="/addtask">Ajouter une tâche</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="/logout">Déconnexion</a>
+				</li>
+			{% else %}
+				<li>
+					<a href="/register">Inscription</a>
+				</li>
+				<li>
+					<a href="/login">Connexion</a>
+				</li>
+			{% endif %}
+		</ul>
+	</nav>
+</header>

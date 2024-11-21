@@ -1,0 +1,61 @@
+{% extends "../layouts/base.twig" %}
+
+{% block title %}
+	<title>{{ title }}</title>
+{% endblock %}
+
+{% block style %}
+	<link rel="stylesheet" href="/css/register.css">
+{% endblock %}
+
+{% block main %}
+	<main>
+		<section>
+			<div id="registerMain">
+				<form action="/register" id="register" method="POST">
+					<div class="d1">
+						<h2>Inscription Entreprise</h2>
+					</div>
+					<div class="d2">
+						<label for="siret">Numéro de SIRET</label><br>
+						<input type="text" id="siret" name="siret" required>
+						{% if error and error.siret %}
+							<span class="error">{{ error.siret }}</span>
+						{% endif %}
+					</div>
+					<div class="d3">
+						<label for="raisonSocial">Nom/Raison sociale</label><br>
+						<input type="text" id="raisonSocial" name="raisonSocial" required>
+						{% if error and error.raisonSocial %}
+							<span class="error">{{ error.raisonSocial }}</span>
+						{% endif %}
+					</div>
+					<div class="d4">
+						<label for="email">Email</label><br>
+						<input type="email" id="email" name="email" required>
+						{% if error and error.email %}
+							<span class="error">{{ error.email }}</span>
+						{% endif %}
+					</div>
+					<div class="d5">
+						<label for="password">Mot de passe</label><br>
+						<input type="password" id="password" name="password" required minlength="8">
+						{% if error and error.password %}
+							<span class="error">{{ error.password }}</span>
+						{% endif %}
+					</div>
+					<div class="d6">
+						<label for="confirmPassword">Confirmer votre mot de passe</label><br>
+						<input type="password" name="confirmPassword" id="confirmPassword" required>
+						{% if error and error.confirmPassword %}
+							<span class="error">{{ error.confirmPassword }}</span>
+						{% endif %}
+					</div>
+					<div class="d7">
+						<button type="submit">S'inscrire</button>
+					</div>
+				</form>
+			</div>
+		</section>
+	</main>
+{% endblock %}

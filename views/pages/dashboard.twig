@@ -1,0 +1,84 @@
+{% extends "../layouts/base.twig" %}
+
+{% block style %}
+	<link rel="stylesheet" href="/css/main.css">
+{% endblock %}
+
+{% block main %}
+	<main>
+		<nav class="dashboard-nav">
+			<ul>
+				<li><a href="/addordinateur">Ajouter un ordinateur</a></li>
+				<li><a href="/addemploye">Ajouter un employé</a></li>
+				<li><a href="/addtask">Ajouter une tâche</a></li>
+			</ul>
+		</nav>
+
+		<section class="dashboard-section">
+			<h1>Tableau de bord</h1>
+
+			<h2>Liste des ordinateurs</h2>
+			<ul class="dashboard-list">
+				{% for ordinateur in ordinateurs %}
+					<li class="dashboard-item">
+						<strong>{{ ordinateur.name }}</strong>
+						<br>Adresse MAC :
+						{{ ordinateur.mac }}
+						<br>
+						{% if ordinateur.employe %}
+							Attribué à :
+							{{ ordinateur.employe.firstName }}
+							{{ ordinateur.employe.lastName }}
+						{% else %}
+							Non attribué
+						{% endif %}
+						<div class="actions">
+							<form action="/deletepc/{{ ordinateur.id }}" method="post">
+								<button type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet ordinateur ?');">Supprimer</button>
+							</form>
+							<a href="/updatepc/{{ ordinateur.id }}">Modifier</a>
+						</div>
+					</li>
+				{% endfor %}
+			</ul>
+
+			<h2>Liste des employés disponibles</h2>
+			<ul class="dashboard-list">
+				{% for employe in employes %}
+					<li class="dashboard-item">
+						<strong>{{ employe.firstName }}
+							{{ employe.lastName }}</strong>
+						<br>{{ employe.email }}
+						<div class="actions">
+							<form action="/deleteemploye/{{ employe.id }}" method="post">
+								<button type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet employé ?');">Supprimer</button>
+							</form>
+							<a href="/updateemploye/{{ employe.id }}">Modifier</a>
+						</div>
+					</li>
+				{% endfor %}
+			</ul>
+
+			<h2>Liste des tâches</h2>
+			<ul class="dashboard-list">
+				{% for task in tasks %}
+					<li class="dashboard-item">
+						<strong>{{ task.title }}</strong>
+						<br>Description :
+						{{ task.description }}
+						<br>Date d'échéance :
+						{{ task.dueDate | date('d/m/Y') }}
+						<div class="actions">
+							<form action="/deletetask/{{ task.id }}" method="post">
+								<button type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette tâche ?');">Supprimer</button>
+							</form>
+							<a href="/updatetask/{{ task.id }}">Modifier</a>
+						</div>
+					</li>
+				{% else %}
+					<li>Aucune tâche trouvée.</li>
+				{% endfor %}
+			</ul>
+		</section>
+	</main>
+{% endblock %}
